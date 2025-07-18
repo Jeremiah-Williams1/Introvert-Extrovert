@@ -31,3 +31,8 @@ The workflow includes:
 4. A JSON response returns the predicted personality type.
 
 ---
+## Model serving Demo
+
+![Demo](demo.gif)
+
+---
