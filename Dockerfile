@@ -1,11 +1,11 @@
 FROM python:3.12-slim
 
-COPY . /App
+WORKDIR /app
 
-WORKDIR /App
+COPY requirement.txt .
+RUN pip install --no-cache-dir -r requirement.txt
 
-RUN pip install -r requirement.txt
+# Copy your model files and the worker
+COPY ./worker .
 
-EXPOSE 8000
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "worker.py"]
